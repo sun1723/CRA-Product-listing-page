@@ -1,2 +1,2 @@
 export const FETCH_PRODUCT = "FETCH_PRODUCT";
-export const SET_FILTER = "SET_FILTER";
+export const SET_SORT = "SET_FILTER";

@@ -3,8 +3,8 @@ export const ProductList = () => {
   const products = useSelector((state) => state.products);
 
   const renderedProducts = products.map((product) => (
-    <div key={product.id}>
-      <h3>{product.name}</h3>
+    <div key={product.goodsSn}>
+      <h3>{product.goodsTitle}</h3>
       <p>{product.description}</p>
     </div>
   ));

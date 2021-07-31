@@ -1,11 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { FETCH_PRODUCT, SET_SORT } from "../constant/actionType";
+import { SORT_FILTER } from "../constant/sort_filter";
 
 const initialState = [];
 const fetchProduct = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_PRODUCT":
-      console.log("fetchproduct is activated", action.payload);
+    case FETCH_PRODUCT:
+      // console.log("fetchproduct is activated", action.payload);
       return action.payload;
+    case SET_SORT:
+      const selectedSOrt = action.payload;
+      const newState = { ...state };
+      newState.products =
+        selectedSOrt === SORT_FILTER.PRICE_LOW_TO_HIGH
+          ? state.products.sort((a, b) => a.displayPrice - b.displayPrice)
+          : state.products.sort((a, b) => b.displayPrice - a.displayPrice);
+      return newState.products;
+
     default:
       return state;
   }

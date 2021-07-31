@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { fetchProducts } from "../actions/fetchProducts";
+import fetchProducts from "../actions/fetchProducts";
 
-export const Search = (props) => {
+const Search = (props) => {
   const [input, setInput] = useState("");
 
   const updateInput = (input) => {
@@ -11,10 +11,8 @@ export const Search = (props) => {
 
   const handleSearch = (event) => {
     //dispathes action to search
-    //     console.log(event.target);
-    console.log(input);
-    fetchProducts(input);
-
+    props.fetchProducts(input);
+    //     console.log(props.fetchProducts(input));
     //set input back to empty string
     setInput("");
   };
@@ -28,14 +26,18 @@ export const Search = (props) => {
         value={input}
       />
       <button onClick={handleSearch}>Search</button>
-      {console.log(props.products)}
+      {/* {console.log(props.products)} */}
     </div>
   );
 };
 const mapStateToProps = (state) => {
+  console.log(state.products);
   return {
+    ...state,
     products: state.products,
   };
 };
-
+// const mapDispatchToProps = (dispatch) => ({
+//   fetchProducts: () => dispatch(fetchProducts()),
+// });
 export default connect(mapStateToProps, { fetchProducts })(Search);

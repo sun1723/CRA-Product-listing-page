@@ -1,20 +1,22 @@
 import { FETCH_PRODUCT } from "../constant/actionType";
 import axios from "axios";
-import options from "../services";
+import { options } from "../services/searchApi";
 
-export const fetchProducts = (content) => {
+export default (content) => {
   return async (dispatch) => {
     const targets = {
       ...options,
-      params: { query: { content }, page: "1" },
+      params: { query: content, page: "1" },
     };
-
+    console.log(targets);
     await axios
       .request(targets)
-      .then((res) => {
+      .then()
+      .then((data) => {
+        // console.log(data.data.data);
         dispatch({
-          type: "FETCH_PRODUCT",
-          payload: res.data.searchResult.mods.itemList,
+          type: FETCH_PRODUCT,
+          payload: data.data.data,
         });
       })
       .catch((err) => {
