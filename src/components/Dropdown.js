@@ -4,7 +4,7 @@ import { setSort } from "../actions/filteredProducts";
 
 const Dropdown = (props) => {
   const updateSortByFilter = (e) => {
-    //     console.log(e.target);
+        console.log(e.target.value);
     props.setSort(e.target.value);
   };
   return (

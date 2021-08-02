@@ -10,11 +10,12 @@ const fetchProduct = (state = initialState, action) => {
       return action.payload;
     case SET_SORT:
       const selectedSOrt = action.payload;
-      const newState = { ...state };
-      newState.products =
-        selectedSOrt === SORT_FILTER.PRICE_LOW_TO_HIGH
-          ? state.products.sort((a, b) => a.displayPrice - b.displayPrice)
-          : state.products.sort((a, b) => b.displayPrice - a.displayPrice);
+      console.log(state)
+      const newState = { ...state ,products :
+        (selectedSOrt == SORT_FILTER.PRICE_LOW_TO_HIGH)
+          ? state.products.sort((a, b) => b.displayPrice - a.displayPrice)
+          : state.products.sort((a, b) => a.displayPrice - b.displayPrice)};
+      console.log(newState.products);
       return newState.products;
 
     default:

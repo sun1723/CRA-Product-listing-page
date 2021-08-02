@@ -1,13 +1,15 @@
-import { useSelector } from "react-redux";
-export const ProductList = () => {
-  const products = useSelector((state) => state.products);
-
-  const renderedProducts = products.map((product) => (
+import { useEffect, useState } from "react";
+import { connect, useSelector } from "react-redux";
+const ProductList = (props) => {
+  
+  const renderedProducts = props.list.map((product) => (
     <div key={product.goodsSn}>
       <h3>{product.goodsTitle}</h3>
       <p>{product.description}</p>
+      <p> {product.displayPrice}</p>
     </div>
   ));
+ 
 
   return (
     <section>
@@ -15,4 +17,8 @@ export const ProductList = () => {
       {renderedProducts}
     </section>
   );
+  
 };
+
+
+export default ProductList;
