@@ -9,10 +9,10 @@ const fetchProduct = (state = initialState, action) => {
       // console.log("fetchproduct is activated", action.payload);
       return action.payload;
     case SET_SORT:
-      const selectedSOrt = action.payload;
+      const selectedSort = action.payload.sort;
       console.log(state)
       const newState = { ...state ,products :
-        (selectedSOrt == SORT_FILTER.PRICE_LOW_TO_HIGH)
+        (selectedSort == SORT_FILTER.PRICE_HIGH_TO_LOW)
           ? state.products.sort((a, b) => b.displayPrice - a.displayPrice)
           : state.products.sort((a, b) => a.displayPrice - b.displayPrice)};
       console.log(newState.products);

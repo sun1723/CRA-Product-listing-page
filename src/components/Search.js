@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import fetchProducts from "../actions/fetchProducts";
 
-const Search = (props) => {
+const Search =  (props) => {
   const [input, setInput] = useState("");
 
   const updateInput = (input) => {
@@ -30,14 +30,10 @@ const Search = (props) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  console.log(state.products);
-  return {
-    ...state,
-    products: state.products,
-  };
-};
-// const mapDispatchToProps = (dispatch) => ({
-//   fetchProducts: () => dispatch(fetchProducts()),
-// });
-export default connect(mapStateToProps, { fetchProducts })(Search);
+
+export default connect(null,{fetchProducts})(Search);
+
+
+
+
+
