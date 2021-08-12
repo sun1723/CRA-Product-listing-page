@@ -2,7 +2,7 @@ import { FETCH_PRODUCT } from "../constant/actionType";
 import axios from "axios";
 import { options } from "../services/searchApi";
 
-export default (content) => {
+const fetchProducts = (content) => {
   return async (dispatch) => {
     const targets = {
       ...options,
@@ -24,3 +24,4 @@ export default (content) => {
       });
   };
 };
+export default fetchProducts;

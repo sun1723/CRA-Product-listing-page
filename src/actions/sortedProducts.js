@@ -1,6 +1,6 @@
 import { SET_SORT } from "../constant/actionType";
 
-export default (sort) => 
+const setSort= (sort) => 
 {
   return async(dispatch) =>{
     dispatch({
@@ -9,4 +9,6 @@ export default (sort) =>
     });
   }
 }
+
+export {setSort};
 

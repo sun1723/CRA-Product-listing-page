@@ -1,19 +1,23 @@
-import { useSelector } from "react-redux";
+import { useEffect,useState } from "react";
+import { useSelector,connect } from "react-redux";
 import "./App.css";
-import Dropdown from "./components/Dropdown";
 
 import Search from "./components/Search";
+import  SortedList  from "./components/SortedList";
+import {store} from './store'
 
 function App() {
-  const products = useSelector(state => state.products);
+  const state = store.getState();
+  console.log(state);
   return (
     <div className='App'>
       {/* <ProductList /> */}
       <Search />
-      <Dropdown />
-     
+      <SortedList />
     </div>
   );
 }
+
+
 
 export default App;

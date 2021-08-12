@@ -12,7 +12,7 @@ const fetchProduct = (state = initialState, action) => {
       const selectedSort = action.payload.sort;
       console.log(state)
       const newState = { ...state ,products :
-        (selectedSort == SORT_FILTER.PRICE_HIGH_TO_LOW)
+        (selectedSort === SORT_FILTER.PRICE_HIGH_TO_LOW)
           ? state.products.sort((a, b) => b.displayPrice - a.displayPrice)
           : state.products.sort((a, b) => a.displayPrice - b.displayPrice)};
       console.log(newState.products);
