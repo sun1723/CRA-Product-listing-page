@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import  {setSort}  from "../actions/sortedProducts";
+import { store } from "../store";
 
 
 const Dropdown = (props) => {
@@ -8,6 +9,7 @@ const Dropdown = (props) => {
   const updateSortByFilter = (e) => {
         // console.log(e.target.value);
     props.setSort(e.target.value);
+    
     
     
   };

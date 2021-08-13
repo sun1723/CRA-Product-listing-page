@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { FETCH_PRODUCT, SET_SORT } from "../constant/actionType";
 import { SORT_FILTER } from "../constant/sort_filter";
 
-const initialState = [];
+const initialState =[] ;
 const fetchProduct = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PRODUCT:
@@ -24,6 +24,7 @@ const fetchProduct = (state = initialState, action) => {
 };
 
 const rootReducer = (state, action) => {
+  console.log(state)
   return {
     products: fetchProduct(state, action),
   };
